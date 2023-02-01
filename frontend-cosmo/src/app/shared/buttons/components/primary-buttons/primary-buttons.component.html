@@ -1,0 +1,7 @@
+<ng-container *ngIf="formB else buttonNormally">
+  <ion-button type="submit" size="default" [disabled]="formB.invalid">
+    {{label}}</ion-button>
+</ng-container>
+<ng-template #buttonNormally>
+  <ion-button size="default">{{label}}</ion-button>
+</ng-template>

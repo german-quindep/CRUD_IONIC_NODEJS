@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-content>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col sizeXs="12" sizeSm="12" sizeMd="6" sizeLg="4" sizeXl="3">
+          <ion-card class="card-design">
+            <ion-card-header>
+              <ion-img [src]="imgLogo" alt="img-logo" class="ion-img"></ion-img>
+              <ion-card-title class="ion-margin-top ion-margin-bottom ion-text-center title-text">Iniciar Sesión
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <form [formGroup]="formB.formLogin" (ngSubmit)="iniciarSesion(formB.formValues);">
+                <ion-item class="ion-margin-bottom">
+                  <ion-label position="floating" color="dark">Usuario</ion-label>
+                  <ion-input type="text" formControlName="username" color="dark"></ion-input>
+                </ion-item>
+                <ion-item class="ion-margin-bottom position-password">
+                  <ion-label position="floating" color="dark">Contraseña</ion-label>
+                  <ion-input [type]="visibility?'text':'password'" formControlName="password" color="dark"></ion-input>
+                  <ng-container *ngIf="visibility else notEyes">
+                    <ion-icon class="position-eyes" color="dark" name="eye-outline" (click)="visiblityPassword()"></ion-icon>
+                  </ng-container>
+                  <ng-template #notEyes>
+                    <ion-icon class="position-eyes" color="dark"name="eye-off-outline" (click)="visiblityPassword()"></ion-icon>
+                  </ng-template>
+                </ion-item>
+                <app-primary-buttons class="ion-margin-top" [formB]="formB.formLogin" [label]="'Iniciar Sesión'">
+                </app-primary-buttons>
+                <ion-item class="ion-text-center">
+                  <ion-text *ngIf="errorCheck" class="ion-margin-top color-danger" color="danger">{{errorMsg}}</ion-text>
+                </ion-item>
+              </form>
+            </ion-card-content>
+            <ion-card-content class="ion-margin-bottom ion-text-center">
+              <app-links-buttons [label]="'¿Olvido su usuario o contraseña?'" [link]="'kk'"></app-links-buttons>
+            </ion-card-content>
+          </ion-card>
+          <ion-text class="text-text-center">Powered by Gquinde {{dateyear}} - v2.0</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

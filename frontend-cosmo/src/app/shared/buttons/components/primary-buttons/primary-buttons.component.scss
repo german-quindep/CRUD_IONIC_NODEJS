@@ -1,0 +1,7 @@
+ion-button{
+  display: flex;
+  --background: rgb(33, 131, 189);
+}
+ion-button:hover{
+  --background: rgb(10, 122, 187);
+}

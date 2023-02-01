@@ -1,0 +1,38 @@
+<ion-card>
+  <ion-card-header class="ion-align-items-center">
+    <ion-title class="ion-text-center ion-margin-top ion-margin-bottom" color="dark">
+      Form Employee
+    </ion-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="formB.formEmployee" (ngSubmit)="saveData(formB.employeValue)">
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating" color="dark">Deparment</ion-label>
+        <ion-input type="text" formControlName="deparment" color="dark"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating" color="dark">Salary</ion-label>
+        <ion-input type="number" formControlName="salary" color="dark" class="number-text"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating" color="dark">Hours Extra</ion-label>
+        <ion-input type="number" formControlName="hours_extra" color="dark" class="number-text"></ion-input>
+      </ion-item>
+      <ion-item [class]="results.length>0 ?'':'ion-margin-bottom'">
+        <ion-label position="floating" color="dark">Person</ion-label>
+        <ion-input type="hidden" formControlName="id_person" color="dark"></ion-input>
+        <ion-input type="text" value="{{text || ''}}" color="dark" (keyup)="search($event)" placeholder="Search person..."></ion-input>
+      </ion-item>
+      <ion-list *ngIf="results.length>0" class="ion-margin-bottom">
+        <ion-item *ngFor="let list of results" (click)="insertInput(list)" class="cursor-pointer">
+          <ion-label>{{list.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+      <app-primary-buttons class="ion-margin-top" [formB]="formB.formEmployee" [label]="'Guardar'">
+      </app-primary-buttons>
+      <ion-item class="ion-text-center">
+        <ion-text *ngIf="errorCheck" class="ion-margin-top color-danger" color="danger">{{errorMsg}}</ion-text>
+      </ion-item>
+    </form>
+  </ion-card-content>
+</ion-card>

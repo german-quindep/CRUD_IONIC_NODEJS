@@ -1,0 +1,53 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+ion-grid {
+  height: 100%;
+}
+
+ion-row {
+  height: 100%;
+}
+.color-danger{
+  text-align: center;
+  color: #eb445a;
+}
+.ion-img {
+  width: 40%;
+  height: auto;
+  margin: 0 auto;
+}
+.card-design {
+  background: #ffffff69;
+  border-radius: 3%;
+}
+
+.text-text-center {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-text {
+  font-weight: 700;
+}
+
+.position-password {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.position-eyes {
+  position: absolute;
+  margin-top: 7%;
+  z-index: 10;
+  cursor: pointer;
+}

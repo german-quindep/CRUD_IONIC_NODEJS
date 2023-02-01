@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header class="ion-align-items-center">
+    <ion-title class="ion-text-center ion-margin-top ion-margin-bottom" color="dark">
+      Form Person
+    </ion-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="formB.formPerson" (ngSubmit)="saveData(formB.personValue)">
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating" color="dark">Full Name</ion-label>
+        <ion-input type="text" formControlName="full_name" color="dark"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating" color="dark">Identity</ion-label>
+        <ion-input type="number" formControlName="identity" color="dark" class="number-text"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-checkbox slot="start" title="Active, Inactive" formControlName="state"></ion-checkbox>
+        <ion-label>{{formB.personValue.state ? 'Active':'Inactive'}}</ion-label>
+      </ion-item>
+      <app-primary-buttons class="ion-margin-top" [formB]="formB.formPerson" [label]="'Guardar'">
+      </app-primary-buttons>
+      <ion-item class="ion-text-center">
+        <ion-text *ngIf="errorCheck" class="ion-margin-top color-danger" color="danger">{{errorMsg}}</ion-text>
+      </ion-item>
+    </form>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,20 @@
+
+$icon-text-color: #fff !important;
+.img-fluid {
+  width: 30%;
+  height: auto;
+  margin: 0 auto;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+/*  */
+ion-menu {
+  --ion-background-color: #293142 !important;
+  --ion-text-color: $icon-text-color;
+  ion-icon {
+    color: $icon-text-color;
+  }
+}
+
+

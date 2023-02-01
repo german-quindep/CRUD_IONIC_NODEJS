@@ -1,0 +1,8 @@
+<div class="container-items">
+  <span class="p-input-icon-right ">
+    <p-autoComplete [inputStyle]="{'width':'220px','margin-left':'3%'}" class="input-style ion-margin-start p-inputtext-sm"
+      [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)" placeholder="Buscar..."
+      [minLength]="1" [baseZIndex]="1000"></p-autoComplete>
+    <i class="pi pi-search cursor" (click)="buscarElemento();"></i>
+  </span>
+</div>

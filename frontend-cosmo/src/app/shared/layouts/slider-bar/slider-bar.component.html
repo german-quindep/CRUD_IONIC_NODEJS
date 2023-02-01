@@ -1,0 +1,47 @@
+<ion-menu side="start" content-id="main-content">
+
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title class="color-header-1 ion-margin-bottom ion-margin-top">
+        <ion-img [src]="imgLogo" alt="img-logo" class="img-fluid"></ion-img>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let items of arrayItems; let i=index" [value]="i">
+        <ion-item slot="header">
+          <ion-icon [name]="items.icons" slot="start"></ion-icon>
+          <ion-label color="light">{{items.name}}</ion-label>
+        </ion-item>
+        <ng-container *ngIf="items.children">
+          <div class="ion-padding cursor-pointer" slot="content" *ngFor="let list of items.children" (click)="irRuta(list.route)">
+            <ion-icon [name]="items.icons" slot="start" class="ion-padding-start ion-padding-end"></ion-icon>
+            <ion-label color="light">{{list.name}}</ion-label>
+          </div>
+        </ng-container>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon name="person-circle-sharp" slot="start" class="ion-margin-top ion-margin-bottom"></ion-icon>
+      <ion-label color="light">Perfil</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</div>
+
+<app-nav-bar></app-nav-bar>
+
